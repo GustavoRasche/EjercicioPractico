@@ -145,7 +145,7 @@ namespace EjercicioPractico
             Console.WriteLine("Listado de Eliminadores:\n");
             foreach (Eliminador eliminador in eliminadores)
             {
-                Console.WriteLine("{0} {1} {2}", eliminador.NumeroSerie, eliminador.Tipo, eliminador.Objetivo);
+                Console.WriteLine(eliminador.NumeroSerie + " " + eliminador.Tipo + " " + eliminador.Objetivo);
             }
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
