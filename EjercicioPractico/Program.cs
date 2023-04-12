@@ -131,7 +131,7 @@ namespace EjercicioPractico
                 Console.WriteLine("Eliminadores encontrados:");
                 foreach (Eliminador eliminador in eliminadoresEncontrados)
                 {
-                    Console.WriteLine($"Eliminador encontrado: {eliminador.NumeroSerie} - {eliminador.Tipo} - Año: {eliminador.AnoDestino}");
+                    Console.WriteLine(eliminador.NumeroSerie + " " + eliminador.Tipo + " " + eliminador.Objetivo);
                 }
             }
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
