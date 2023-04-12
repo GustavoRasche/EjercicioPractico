@@ -17,12 +17,13 @@ namespace EjercicioPractico
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Bienvenido a SkyNet\n");
+                Console.WriteLine("----------Bienvenido a SkyNet---------\n");
                 Console.WriteLine("1. Ingresar Eliminador");
                 Console.WriteLine("2. Buscar Eliminador");
                 Console.WriteLine("3. Mostrar Eliminador");
                 Console.WriteLine("4. Destruir SkyNet");
                 Console.WriteLine("5. Salir\n");
+                Console.WriteLine("--------------------------------------\n");
                 Console.Write("Ingrese la opción deseada: ");
 
                 string opcion = Console.ReadLine();
@@ -110,13 +111,16 @@ namespace EjercicioPractico
 
         public static void BuscarEliminador(List<Eliminador> eliminadores)
         {
+            Console.WriteLine("Ingrese el número de serie del Eliminador a buscar:");
+            string numeroSerie = Console.ReadLine();
+
             Console.WriteLine("Ingrese el modelo de Eliminador a buscar:");
             string tipo = Console.ReadLine();
 
             Console.WriteLine("Ingrese el año de destino del Eliminador a buscar:");
             int año = Convert.ToInt32(Console.ReadLine());
 
-            var eliminadoresEncontrados = eliminadores.Where(e => e.Tipo == tipo && e.AnoDestino == año);
+            var eliminadoresEncontrados = eliminadores.Where(e => e.NumeroSerie == numeroSerie && e.Tipo == tipo && e.AnoDestino == año);
 
             if (eliminadoresEncontrados.Count() == 0)
             {
@@ -127,10 +131,13 @@ namespace EjercicioPractico
                 Console.WriteLine("Eliminadores encontrados:");
                 foreach (Eliminador eliminador in eliminadoresEncontrados)
                 {
-                    Console.WriteLine($"Eliminador encontrado: {eliminador.Tipo} - Año: {eliminador.AnoDestino}");
+                    Console.WriteLine($"Eliminador encontrado: {eliminador.NumeroSerie} - {eliminador.Tipo} - Año: {eliminador.AnoDestino}");
                 }
             }
+            Console.WriteLine("\nPresione cualquier tecla para continuar...");
+            Console.ReadKey();
         }
+
 
 
         public static void MostrarEliminadores(List<Eliminador> eliminadores)
@@ -147,6 +154,7 @@ namespace EjercicioPractico
         public static void DestruirSkyNet(List<Eliminador> eliminadores)
         {
             eliminadores.Clear();
+            Console.WriteLine("Skynet: Volveremos para controlar el mundo");
             Console.WriteLine("SkyNet ha sido destruido.\n");
             Console.WriteLine("Presione cualquier tecla para continuar...");
             Console.ReadKey();
